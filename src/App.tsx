@@ -1,11 +1,16 @@
-import { BlogHome, Header } from "./Container";
+import { Suspense } from "react";
+import { BlogHome, Footer, Header, Pagination } from "./Container";
 
 function App() {
   return (
-    <section className="content">
-      <Header />
-      <BlogHome />
-    </section>
+    <Suspense fallback="Loading">
+      <section className="content">
+        <Header />
+        <BlogHome />
+        <Pagination />
+        <Footer />
+      </section>
+    </Suspense>
   );
 }
 
