@@ -2,7 +2,7 @@ function Header() {
   return (
     <section className="header">
       <div className="header__branding">
-        <h3>Logo</h3>
+        <h3>FAD</h3>
         <div>Burger</div>
       </div>
       <div className="header__headline">
