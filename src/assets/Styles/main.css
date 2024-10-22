@@ -70,7 +70,8 @@ div {
 }
 
 .home__blogpost {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   background-color: #ffff;
   border-radius: 1rem;
   padding: 0.75rem;
