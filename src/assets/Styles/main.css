@@ -33,6 +33,11 @@ input:focus {
   border: 1px solid blue;
 }
 
+input:disabled {
+  background-color: whitesmoke;
+  cursor: not-allowed;
+}
+
 h1,
 h2,
 h3,
@@ -89,6 +94,11 @@ a {
 .header__headline--headline {
   font-size: 3.5rem;
   font-weight: bolder;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .home {
