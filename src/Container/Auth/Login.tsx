@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Login() {
   const [formStatus, setFormStats] = useState({
     disableInput: false,
     isPending: false,
   });
+
+  useEffect(() => {
+    setFormStats({
+      disableInput: false,
+      isPending: false,
+    });
+  }, []);
   return (
     <div className="login__form">
       <form className="login__form--container">
