@@ -33,6 +33,10 @@ div {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .content {
   display: grid;
   gap: 20px;
@@ -48,7 +52,15 @@ div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25rem 0 1.25rem;
+  padding: 0 2rem 0 2rem;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__nav--burger {
 }
 
 .header__headline {
@@ -84,6 +96,7 @@ div {
   flex-direction: column;
   border-radius: 1rem;
   padding: 0.75rem;
+  cursor: pointer;
 }
 
 .home__blogpost--image {
@@ -117,6 +130,10 @@ div {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.blog__post {
+  padding: 0 2rem;
 }
 
 .pagination {
