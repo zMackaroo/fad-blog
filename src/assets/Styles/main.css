@@ -189,6 +189,18 @@ a {
   padding: 1.125rem;
 }
 
+.page__not__found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page__not__found > img {
+  max-width: 30%;
+  max-height: 30%;
+  object-fit: cover;
+}
+
 /* Mobile */
 @media screen and (min-width: 0px) and (max-width: 480px) {
   .recent__blogpost__wrapper {
@@ -198,6 +210,11 @@ a {
 
   .blog__post--content {
     padding: 0 0.5rem;
+  }
+
+  .page__not__found > img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -223,6 +240,11 @@ a {
   .blog__post--content {
     padding: 0 0.5rem;
   }
+
+  .page__not__found > img {
+    max-width: 40%;
+    max-height: 40%;
+  }
 }
 
 /* Laptops */
@@ -238,6 +260,11 @@ a {
 
   .blog__post--content {
     padding: 0 8rem;
+  }
+
+  .page__not__found > img {
+    max-width: 60%;
+    max-height: 60%;
   }
 }
 
