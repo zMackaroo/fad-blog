@@ -89,13 +89,13 @@ a {
   font-weight: var(--font-semi-bold);
 }
 
-.home__blogpost__wrapper {
+.recent__blogpost__wrapper {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(1, 1fr);
 }
 
-.home__blogpost {
+.recent__blogpost {
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
@@ -103,33 +103,33 @@ a {
   cursor: pointer;
 }
 
-.home__blogpost--image {
+.recent__blogpost--image {
   max-width: 100%;
   max-width: 100%;
   max-height: 230px;
   object-fit: cover;
 }
 
-.home__blogpost--date {
+.recent__blogpost--date {
   color: #a9a9a9;
   font-size: 0.875rem;
   font-weight: var(--font-semi-bold);
 }
 
-.home__blogpost__details {
+.recent__blogpost__details {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.home__blogpost__details--title {
+.recent__blogpost__details--title {
   font-size: 1.5rem;
   font-weight: var(--font-semi-bold);
   max-height: 3.5rem;
   overflow: hidden;
 }
 
-.home__blogpost__details--description {
+.recent__blogpost__details--description {
   color: #667085;
   display: -webkit-box;
   max-width: 100%;
@@ -191,7 +191,7 @@ a {
 
 /* Mobile */
 @media screen and (min-width: 0px) and (max-width: 480px) {
-  .home__blogpost__wrapper {
+  .recent__blogpost__wrapper {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -203,13 +203,16 @@ a {
 
 /* Tablets */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  .home__blogpost__wrapper {
+  .recent__blogpost__wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
 
-  .home__blogpost__wrapper > div:not(:first-child):not(:last-child) {
+  .recent__blogpost__wrapper
+    > div:not(:first-child):nth-child(even):not(:last-child),
+  .recent__blogpost__wrapper
+    > div:not(:first-child):nth-child(odd):not(:last-child) {
     width: 50%;
   }
 
@@ -224,7 +227,7 @@ a {
 
 /* Laptops */
 @media screen and (min-width: 769px) and (max-width: 1279px) {
-  .home__blogpost__wrapper {
+  .recent__blogpost__wrapper {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -240,7 +243,7 @@ a {
 
 /* Computer */
 @media screen and (min-width: 1280px) {
-  .home__blogpost__wrapper {
+  .recent__blogpost__wrapper {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(4, 1fr);
   }

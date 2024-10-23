@@ -51,29 +51,32 @@ function Home() {
       <div>
         <span className="home--breadcrumb">Recent News</span>
       </div>
-      <div className="home__blogpost__wrapper">
+      <div className="recent__blogpost__wrapper">
         {mockData.map(({ id, mockImage, date, title, description }) => (
           <div
             key={id}
-            className="home__blogpost"
+            className="recent__blogpost"
             onClick={() => HandleBlogPostClick(id)}
           >
             <img
               loading="lazy"
-              className="home__blogpost--image"
+              className="recent__blogpost--image"
               src={mockImage}
             />
-            <p className="home__blogpost--date">{date}</p>
-            <div className="home__blogpost__details">
-              <div className="home__blogpost__details--title">
+            <p className="recent__blogpost--date">{date}</p>
+            <div className="recent__blogpost__details">
+              <div className="recent__blogpost__details--title">
                 <span>{title}</span>
               </div>
-              <span className="home__blogpost__details--description">
+              <span className="recent__blogpost__details--description">
                 {description}
               </span>
             </div>
           </div>
         ))}
+      </div>
+      <div>
+        <span className="home--breadcrumb">All News</span>
       </div>
     </section>
   );
