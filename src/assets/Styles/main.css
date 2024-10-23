@@ -12,6 +12,9 @@ body {
   box-sizing: border-box;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
+  background-image: url("../Images//bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 img {
