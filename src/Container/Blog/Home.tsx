@@ -54,6 +54,7 @@ function Home() {
       <div className="home__blogpost__wrapper">
         {mockData.map(({ id, mockImage, date, title, description }) => (
           <div
+            key={id}
             className="home__blogpost"
             onClick={() => HandleBlogPostClick(id)}
           >
