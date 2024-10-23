@@ -77,6 +77,17 @@ a {
   padding: 0 2rem 0 2rem;
 }
 
+.header__branding--logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__branding--logo > img {
+  width: 70px;
+  height: 70px;
+}
+
 .header__nav {
   display: flex;
   gap: 1rem;
@@ -225,6 +236,8 @@ a {
   align-items: center;
   gap: 0.875rem;
   padding: 1.125rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .page__not__found {
