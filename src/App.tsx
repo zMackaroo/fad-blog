@@ -1,17 +1,22 @@
 import { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BlogHome, Layout, Login } from "./Container";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
+
+import { BlogHome, Layout, Login, BlogPost } from "./Container";
 import { DefaultLoading, PageNotFound } from "./Components";
-import Blogpost from "./Container/Layout/Blogpost";
 
 function App() {
   return (
     <Suspense fallback={<DefaultLoading />}>
+      <LinkPreview
+        url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        width="400px"
+      />
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<BlogHome />} />
-            <Route path="/p/:id" element={<Blogpost />} />
+            <Route path="/p/:id" element={<BlogPost />} />
             <Route path="/admin" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>

@@ -5,4 +5,5 @@ export const BlogHome = lazy(() => import("./Blog/Home"));
 export const Pagination = lazy(() => import("./Pagination/Pagination"));
 export const Footer = lazy(() => import("./Footer/Footer"));
 export const Layout = lazy(() => import("./Layout/Layout"));
+export const BlogPost = lazy(() => import("./Layout/Blogpost"));
 export const Login = lazy(() => import("./Auth/Login"));
