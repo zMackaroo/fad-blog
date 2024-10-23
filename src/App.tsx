@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BlogHome, Layout } from "./Container";
+import { BlogHome, Layout, Login } from "./Container";
 import { DefaultLoading, PageNotFound } from "./Components";
 import Blogpost from "./Container/Layout/Blogpost";
 
@@ -11,10 +11,10 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<BlogHome />} />
-            <Route path="/:id" element={<Blogpost />} />
+            <Route path="/p/:id" element={<Blogpost />} />
+            <Route path="/admin" element={<Login />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
-          <Route path="/auth" element={<h1>Admin Login</h1>} />
         </Routes>
       </BrowserRouter>
     </Suspense>

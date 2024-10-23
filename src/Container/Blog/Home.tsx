@@ -11,7 +11,7 @@ const mockData = [
     date: "19 October, 2024",
     title: "Barrel Leg Jeans & How To Wear Them",
     description:
-      "I’m not cool when it comes to fashion. I rarely take risks with my wardrobe and I tend to have the same outfit formula time and time again. But there was one trend I was kind of excited about: barrel jeans. I…",
+      "I’m not cool when it comes to fashion. I rarely take risks with my wardrobe and I tend to have the same outfit formula time and time again. But there was one trend I was kind of excited about: barrel jeans.I’m not cool when it comes to fashion. I rarely take risks with my wardrobe and I tend to have the same outfit formula time and time again. But there was one trend I was kind of excited about: barrel jeans.",
   },
   {
     id: "a5280e7407a153d9622a02a8ef58d6fd",
@@ -43,7 +43,7 @@ function Home() {
   const navigate = useNavigate();
 
   const HandleBlogPostClick = (id: string) => {
-    navigate(`/${id}`);
+    navigate(`/p/${id}`);
   };
 
   return (
