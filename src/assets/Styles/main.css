@@ -102,6 +102,8 @@ a {
 .home__blogpost--image {
   width: 100%;
   height: 100%;
+  max-height: 230px;
+  object-fit: cover;
 }
 
 .home__blogpost--date {
@@ -133,7 +135,28 @@ a {
 }
 
 .blog__post {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 20px;
   padding: 0 2rem;
+}
+
+.blog__post--title {
+  background-color: whitesmoke;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+
+.blog__post--content {
+  text-align: justify;
+  padding: 0 12rem 0 12rem;
+}
+
+.blog__post--content > img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .pagination {
@@ -167,6 +190,10 @@ a {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .blog__post--content {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Tablets */
@@ -184,6 +211,10 @@ a {
   .header__headline--headline {
     font-size: 6rem;
   }
+
+  .blog__post--content {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Laptops */
@@ -192,8 +223,13 @@ a {
     grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
   }
+
   .header__headline--headline {
     font-size: 8.5rem;
+  }
+
+  .blog__post--content {
+    padding: 0 8rem;
   }
 }
 

@@ -1,6 +1,9 @@
+import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
+
   return (
     <section className="header">
       <div className="header__branding">
@@ -11,9 +14,11 @@ function Header() {
           <NavLink to="/">Newsletter</NavLink>
         </nav>
       </div>
-      <div className="header__headline">
-        <span className="header__headline--headline">URBAN VOGUE</span>
-      </div>
+      {location.pathname === "/" && (
+        <div className="header__headline">
+          <span className="header__headline--headline">URBAN VOGUE</span>
+        </div>
+      )}
     </section>
   );
 }
