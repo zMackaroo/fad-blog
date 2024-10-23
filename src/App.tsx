@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BlogHome, Layout } from "./Container";
 import { DefaultLoading } from "./Components";
@@ -18,4 +18,16 @@ function App() {
     </Suspense>
   );
 }
-export default App;
+
+function RenderAppResources() {
+  const [resourcesLoaded, setResourcesLoaded] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setResourcesLoaded(true);
+    }, 3000);
+  }, []);
+
+  return resourcesLoaded ? <App /> : <DefaultLoading />;
+}
+export default RenderAppResources;
