@@ -1,11 +1,12 @@
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BlogHome, Layout } from "./Container";
+import { DefaultLoading } from "./Components";
 import Blogpost from "./Container/Layout/Blogpost";
 
 function App() {
   return (
-    <Suspense fallback="Loading">
+    <Suspense fallback={<DefaultLoading />}>
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
@@ -17,5 +18,4 @@ function App() {
     </Suspense>
   );
 }
-
 export default App;
