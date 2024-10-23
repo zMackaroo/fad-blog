@@ -15,7 +15,6 @@ function Header() {
         </NavLink>
         <nav className="header__nav">
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/">Newsletter</NavLink>
         </nav>
       </div>
       {location.pathname === "/" && (
