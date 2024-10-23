@@ -53,11 +53,7 @@ function Home() {
       </div>
       <div className="recent__blogpost__wrapper">
         {mockData.map(({ id, mockImage, date, title, description }) => (
-          <div
-            key={id}
-            className="recent__blogpost"
-            onClick={() => HandleBlogPostClick(id)}
-          >
+          <div key={id} className="recent__blogpost">
             <img
               loading="lazy"
               className="recent__blogpost--image"
@@ -71,6 +67,12 @@ function Home() {
               <span className="recent__blogpost__details--description">
                 {description}
               </span>
+            </div>
+            <div
+              className="recent__blog__post--button"
+              onClick={() => HandleBlogPostClick(id)}
+            >
+              <button>READ STORY</button>
             </div>
           </div>
         ))}

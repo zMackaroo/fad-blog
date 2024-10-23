@@ -12,9 +12,6 @@ body {
   box-sizing: border-box;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-  background-image: url("../Images//bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 img {
@@ -97,11 +94,6 @@ a {
 .header__headline--headline {
   font-size: 3.5rem;
   font-weight: bolder;
-  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
-  background-size: cover;
-  color: transparent;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
 }
 
 .home {
@@ -126,7 +118,6 @@ a {
   flex-direction: column;
   border-radius: 1rem;
   padding: 0.75rem;
-  cursor: pointer;
 }
 
 .recent__blogpost--image {
@@ -162,6 +153,27 @@ a {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.recent__blog__post--button {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.675rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.recent__blog__post--button > button {
+  box-sizing: border-box;
+  border-bottom: 2px solid black;
+  padding: 0.475rem;
+}
+
+.recent__blog__post--button > button:hover {
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  position: absolute;
 }
 
 .blog__post {
