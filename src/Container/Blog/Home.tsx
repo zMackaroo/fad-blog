@@ -58,7 +58,11 @@ function Home() {
             className="home__blogpost"
             onClick={() => HandleBlogPostClick(id)}
           >
-            <img className="home__blogpost--image" src={mockImage} />
+            <img
+              loading="lazy"
+              className="home__blogpost--image"
+              src={mockImage}
+            />
             <p className="home__blogpost--date">{date}</p>
             <div className="home__blogpost__details">
               <div className="home__blogpost__details--title">
