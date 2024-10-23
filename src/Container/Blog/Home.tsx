@@ -68,11 +68,10 @@ function Home() {
                 {description}
               </span>
             </div>
-            <div
-              className="recent__blog__post--button"
-              onClick={() => HandleBlogPostClick(id)}
-            >
-              <button>READ STORY</button>
+            <div className="recent__blog__post--button">
+              <button onClick={() => HandleBlogPostClick(id)}>
+                READ STORY
+              </button>
             </div>
           </div>
         ))}

@@ -170,7 +170,6 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 0.675rem;
-  cursor: pointer;
   box-sizing: border-box;
 }
 
@@ -178,6 +177,7 @@ a {
   box-sizing: border-box;
   border-bottom: 2px solid black;
   padding: 0.475rem;
+  cursor: pointer;
 }
 
 .recent__blog__post--button > button:hover {
@@ -260,7 +260,6 @@ a {
   gap: 0.875rem;
   padding: 1.125rem;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .footer__emailus {
