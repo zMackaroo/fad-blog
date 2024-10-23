@@ -1,10 +1,13 @@
 function Footer() {
   return (
     <div className="footer">
-      <span>
-        <a href="mailto:urbanvogueasia@gmail.com">Email us</a>
-      </span>
-      <span>© 2023</span>
+      <a
+        className="footer__emailus"
+        href={`mailto:${import.meta.env.VITE_COMPANY_EMAIL}`}
+      >
+        <span>Email us</span>
+      </a>
+      <span>© 2024 by Urban Vogue</span>
     </div>
   );
 }

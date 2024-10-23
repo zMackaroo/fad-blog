@@ -263,6 +263,17 @@ a {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.footer__emailus {
+  transition: all 0.3s;
+  padding: 0.675rem;
+  background-color: black;
+  color: white;
+}
+
+.footer__emailus:hover {
+  background-color: rgb(24, 23, 23);
+}
+
 .page__not__found {
   display: flex;
   justify-content: center;
