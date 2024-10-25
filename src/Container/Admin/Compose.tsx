@@ -38,12 +38,12 @@ function Compose() {
     content: "tes",
   });
   return (
-    <>
+    <div>
       <Menu.TopBar editor={editor} />
       <Menu.Bubble editor={editor} />
       <Menu.Floating editor={editor} />
       <EditorContent editor={editor} />
-    </>
+    </div>
   );
 }
 
