@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
-import { Header, Footer, Pagination } from "..";
+import { Blog } from "..";
 
 function Layout() {
   return (
     <section className="content">
-      <Header />
+      <Blog.Header />
       <Outlet />
-      <Pagination />
-      <Footer />
+      <Blog.Pagination />
+      <Blog.Footer />
     </section>
   );
 }

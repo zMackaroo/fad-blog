@@ -1,9 +1,20 @@
 import { lazy } from "react";
 
-export const Header = lazy(() => import("./Header/Header"));
-export const BlogHome = lazy(() => import("./Blog/Home"));
-export const Pagination = lazy(() => import("./Pagination/Pagination"));
-export const Footer = lazy(() => import("./Footer/Footer"));
-export const Layout = lazy(() => import("./Layout/Layout"));
-export const BlogPost = lazy(() => import("./Layout/Blogpost"));
-export const Login = lazy(() => import("./Auth/Login"));
+export const Blog = {
+  Header: lazy(() => import("./Header/Header")),
+  Home: lazy(() => import("./Blog/Home")),
+  Pagination: lazy(() => import("./Pagination/Pagination")),
+  Footer: lazy(() => import("./Footer/Footer")),
+  Layout: lazy(() => import("./Layout/Layout")),
+  Post: lazy(() => import("./Layout/Blogpost")),
+  Login: lazy(() => import("./Auth/Login")),
+};
+
+export const Admin = {
+  Layout: lazy(() => import("./Layout/AdminLayout")),
+  Header: lazy(() => import("./Admin/Header")),
+  Sidebar: lazy(() => import("./Admin/SideNav")),
+  Post: lazy(() => import("./Admin/Blogpost")),
+  Compose: lazy(() => import("./Admin/Compose")),
+  Users: lazy(() => import("./Admin/Users")),
+};

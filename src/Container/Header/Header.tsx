@@ -1,12 +1,14 @@
-import { useLocation } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useLocation, NavLink } from "react-router-dom";
 import Logo from "../../assets/Images/icon2.png";
 
 function Header() {
+  const [cookies] = useCookies();
   const location = useLocation();
+  const isLoggedIn = cookies.accessToken;
 
   return (
-    <section className="header">
+    <header className="header">
       <div className="header__branding">
         <NavLink to="/">
           <div className="header__branding--logo">
@@ -15,6 +17,7 @@ function Header() {
         </NavLink>
         <nav className="header__nav">
           <NavLink to="/">Home</NavLink>
+          {isLoggedIn && <NavLink to="/a/blog/posts">Dashboard</NavLink>}
         </nav>
       </div>
       {location.pathname === "/" && (
@@ -24,7 +27,7 @@ function Header() {
           </span>
         </div>
       )}
-    </section>
+    </header>
   );
 }
 

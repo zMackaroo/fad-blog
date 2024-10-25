@@ -1,4 +1,9 @@
-import DefaultLoading from "./Common/DefaultLoading";
-import PageNotFound from "./Common/PageNotFound";
+import { lazy } from "react";
 
-export { DefaultLoading, PageNotFound };
+export const Loading = {
+  Default: lazy(() => import("./Common/DefaultLoading")),
+};
+
+export const Catch = {
+  PageNotFound: lazy(() => import("./Common/PageNotFound")),
+};
