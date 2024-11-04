@@ -12,18 +12,18 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Blog.Layout />}>
-              <Route path="/" element={<Blog.Home />} />
-              <Route path="/p/:id" element={<Blog.Post />} />
-              <Route path="/admin" element={<Blog.Login />} />
-              <Route path="*" element={<Catch.PageNotFound />} />
+              <Route path='/' element={<Blog.Home />} />
+              <Route path='/p/:id' element={<Blog.Post />} />
+              <Route path='/admin' element={<Blog.Login />} />
+              <Route path='*' element={<Catch.PageNotFound />} />
             </Route>
-            <Route path="/a/" element={<Admin.Layout />}>
-              <Route path="/a/blog/compose" element={<Admin.Compose />} />
-              <Route path="/a/blog/posts" element={<Admin.Post />} />
-              <Route path="/a/users" element={<Admin.Users />} />
-              <Route path="*" element={<Catch.PageNotFound />} />
+            <Route path='/a/' element={<Admin.Layout />}>
+              <Route path='/a/blog/compose/:id' element={<Admin.Compose />} />
+              <Route path='/a/blog/posts' element={<Admin.Post />} />
+              <Route path='/a/users' element={<Admin.Users />} />
+              <Route path='*' element={<Catch.PageNotFound />} />
             </Route>
-            <Route path="*" element={<Catch.PageNotFound />} />
+            <Route path='*' element={<Catch.PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>

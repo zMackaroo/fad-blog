@@ -19,29 +19,35 @@ function Home() {
   }, []);
 
   return (
-    <section className="home">
+    <section className='home'>
       <div>
-        <span className="home--breadcrumb">Recent News</span>
+        <span className='home--breadcrumb'>Recent News</span>
       </div>
-      <div className="recent__blogpost__wrapper">
-        {blogPosts.map(({ id, mockImage, date, title, description }) => (
-          <div key={id} className="recent__blogpost">
+      <div className='recent__blogpost__wrapper'>
+        {blogPosts.map(({ _id, imageLink, date, title, description }) => (
+          <div key={_id} className='recent__blogpost'>
             <img
-              loading="lazy"
-              className="recent__blogpost--image"
-              src={mockImage}
+              loading='lazy'
+              className='recent__blogpost--image'
+              src={imageLink}
             />
-            <p className="recent__blogpost--date">{date}</p>
-            <div className="recent__blogpost__details">
-              <div className="recent__blogpost__details--title">
+            <p className='recent__blogpost--date'>
+              {new Date(date).toLocaleString("en-us", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })}
+            </p>
+            <div className='recent__blogpost__details'>
+              <div className='recent__blogpost__details--title'>
                 <span>{title}</span>
               </div>
-              <span className="recent__blogpost__details--description">
+              <span className='recent__blogpost__details--description'>
                 {description}
               </span>
             </div>
-            <div className="recent__blog__post--button">
-              <button onClick={() => HandleBlogPostClick(id)}>
+            <div className='recent__blog__post--button'>
+              <button onClick={() => HandleBlogPostClick(_id)}>
                 READ STORY
               </button>
             </div>

@@ -3,7 +3,9 @@ import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <header className="dashboard__header">
-      <NavLink to="/">Logout</NavLink>
+      <div className="dashboard__header--actions">
+        <NavLink to="/">Logout</NavLink>
+      </div>
     </header>
   );
 }
