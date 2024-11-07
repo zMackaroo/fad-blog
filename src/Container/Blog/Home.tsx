@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Store } from "../../Utils/Context/Context";
+import { getPublishedBlogPost } from "../../Services/Blogpost";
 
 function Home() {
   const test = useContext(Store);
@@ -13,9 +14,10 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:9000/blogpost")
-      .then((response) => response.json())
-      .then((data) => setBlogPosts(data));
+    getPublishedBlogPost(
+      (response) => setBlogPosts(response.data),
+      () => {}
+    );
   }, []);
 
   return (
