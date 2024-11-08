@@ -4,6 +4,7 @@ export const initialStore: any = {
     accessToken: "",
     refreshToken: "",
   },
+  appLoading: false,
 };
 
 export const applicationReducer = (state: any, action: any) => {

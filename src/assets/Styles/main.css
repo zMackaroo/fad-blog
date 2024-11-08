@@ -202,7 +202,7 @@ a {
 
 .blog__post__wrapper {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 1fr;
 }
 
 .blog__post {

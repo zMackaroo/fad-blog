@@ -7,9 +7,9 @@ import { ContextProvider } from "./Utils/Context/Context";
 
 function App() {
   return (
-    <Suspense fallback={<Loading.Default />}>
-      <ContextProvider>
-        <BrowserRouter>
+    <ContextProvider>
+      <BrowserRouter>
+        <Suspense fallback={<Loading.Default />}>
           <Routes>
             <Route element={<Blog.Layout />}>
               <Route path='/' element={<Blog.Home />} />
@@ -25,9 +25,9 @@ function App() {
             </Route>
             <Route path='*' element={<Catch.PageNotFound />} />
           </Routes>
-        </BrowserRouter>
-      </ContextProvider>
-    </Suspense>
+        </Suspense>
+      </BrowserRouter>
+    </ContextProvider>
   );
 }
 

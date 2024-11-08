@@ -14,10 +14,10 @@ function Blogpost() {
           {content !== undefined && Parser(content?.content)}
         </div>
       </article>
-      <div className='related__post__container'>
+      {/* <div className='related__post__container'>
         <p>Related Posts</p>
         <div className='related__post__wrapper'>{[]}</div>
-      </div>
+      </div> */}
     </div>
   );
 }
