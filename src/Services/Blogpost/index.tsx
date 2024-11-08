@@ -27,7 +27,18 @@ export const updateBlogPost = (
     .catch(failCallBack);
 };
 
-export const deleteBlogPost = () => {};
+export const deleteBlogPost = (
+  formData: Object,
+  successCallBack: (response: any) => void,
+  failCallBack: () => void
+) => {
+  return axios
+    .delete(`${baseUrl + blogPostUrl}`, { data: formData })
+    .then((response) => {
+      successCallBack(response);
+    })
+    .catch(failCallBack);
+};
 
 export const getAllBlogPost = (
   successCallBack: (response: any) => void,

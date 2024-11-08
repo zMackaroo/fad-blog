@@ -5,11 +5,12 @@ import Snackbar from "@mui/material/Snackbar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-import { updateBlogPost } from "../../Services/Blogpost";
+import { updateBlogPost, deleteBlogPost } from "../../Services/Blogpost";
 
 function MenuButton(props: any) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [snackBarMessage, setSnackBarMessage] = React.useState("");
   const open = Boolean(anchorEl);
   const [showSnackBar, setShowSnackBar] = React.useState(false);
 
@@ -27,11 +28,37 @@ function MenuButton(props: any) {
   };
 
   const handlePublish = (id: string) => {
-    updateBlogPost(
-      { id: id, isPublished: true },
+    if (!props.publish) {
+      updateBlogPost(
+        { id: id, isPublished: true },
+        () => {
+          setShowSnackBar(true);
+          setSnackBarMessage("Post published !");
+          handleClose();
+        },
+        () => {}
+      );
+    } else {
+      updateBlogPost(
+        { id: id, isPublished: false },
+        () => {
+          setShowSnackBar(true);
+          setSnackBarMessage("Post un-published !");
+          handleClose();
+        },
+        () => {}
+      );
+    }
+  };
+
+  const handleDelete = (id: string) => {
+    deleteBlogPost(
+      { id: id },
       () => {
-        setShowSnackBar(true);
-        handleClose();
+        setSnackBarMessage("Post Deleted !");
+        setTimeout(() => {
+          location.reload();
+        }, 1500);
       },
       () => {}
     );
@@ -69,10 +96,10 @@ function MenuButton(props: any) {
           sx={{ display: "flex", flexDirection: "row", gap: "0.475rem" }}
         >
           <i className='fa-solid fa-upload' />
-          <span>Publish</span>
+          <span>{props.publish ? "Unpublish" : "Publish"}</span>
         </MenuItem>
         <MenuItem
-          onClick={handleClose}
+          onClick={() => handleDelete(props.dataId)}
           sx={{ display: "flex", flexDirection: "row", gap: "0.475rem" }}
         >
           <i className='fa-solid fa-trash' />
@@ -85,7 +112,7 @@ function MenuButton(props: any) {
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={showSnackBar}
         onClose={() => setShowSnackBar(!showSnackBar)}
-        message='Post published !'
+        message={snackBarMessage}
         key='topright'
       />
     </>

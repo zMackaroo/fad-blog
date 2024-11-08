@@ -22,12 +22,12 @@ function SideNav() {
             <span>Posts</span>
           </NavLink>
         </div>
-        <div className='dashboard__sidenav__menu--link'>
+        {/* <div className='dashboard__sidenav__menu--link'>
           <NavLink to='/a/users'>
             <i className='fa-solid fa-users' />
             <span>Users</span>
           </NavLink>
-        </div>
+        </div> */}
       </div>
     </aside>
   );
