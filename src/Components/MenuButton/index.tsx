@@ -73,7 +73,7 @@ function MenuButton(props: any) {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <i className='fa-solid fa-ellipsis-vertical' />
+        <i className='fa-solid fa-pen-nib' />
       </button>
       <Menu
         id={`basic-menu-${props.dataId}`}
@@ -97,6 +97,19 @@ function MenuButton(props: any) {
         >
           <i className='fa-solid fa-upload' />
           <span>{props.publish ? "Unpublish" : "Publish"}</span>
+        </MenuItem>
+        <MenuItem
+          onClick={() => {}}
+          sx={{ display: "flex", flexDirection: "row", gap: "0.475rem" }}
+        >
+          <i className='fa-solid fa-eye' />
+          <a
+            href={`${window.location.origin}/p/${props.dataId}`}
+            target='_blank'
+            style={{ fontWeight: "unset" }}
+          >
+            View
+          </a>
         </MenuItem>
         <MenuItem
           onClick={() => handleDelete(props.dataId)}

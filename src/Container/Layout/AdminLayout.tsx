@@ -7,9 +7,9 @@ function AdminLayout() {
   const navigate = useNavigate();
   const [cookies] = useCookies();
 
-  useLayoutEffect(() => {
-    if (cookies.accessToken === undefined) navigate("/admin");
-  }, []);
+  // useLayoutEffect(() => {
+  //   if (cookies.accessToken === undefined) navigate("/admin");
+  // }, []);
 
   return (
     <>

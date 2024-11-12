@@ -6,7 +6,6 @@ function Layout() {
     <section className='content'>
       <Blog.Header />
       <Outlet />
-      {/* <Blog.Pagination /> */}
       <Blog.Footer />
     </section>
   );

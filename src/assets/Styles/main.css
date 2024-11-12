@@ -252,8 +252,9 @@ a {
 .pagination {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   gap: 0.75rem;
+  width: 100%;
   padding: 1.125rem 2rem 1.125rem 2rem;
 }
 

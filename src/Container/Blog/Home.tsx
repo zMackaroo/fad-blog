@@ -1,11 +1,13 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Loading } from "../../Components";
+import { Blog } from "../../Container";
 
 import { getPublishedBlogPost } from "../../Services/Blogpost";
 
 function Home() {
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [blogPosts, setBlogPosts] = useState([]);
   const navigate = useNavigate();
@@ -17,6 +19,8 @@ function Home() {
   useLayoutEffect(() => {
     setLoading(!loading);
     getPublishedBlogPost(
+      1,
+      8,
       (response) => {
         setBlogPosts(response.data);
         setLoading(false);
@@ -24,6 +28,22 @@ function Home() {
       () => {}
     );
   }, []);
+
+  const handlePagination = (page: any) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    getPublishedBlogPost(
+      currentPage,
+      8,
+      (response) => {
+        setBlogPosts(response.data);
+        setLoading(false);
+      },
+      () => {}
+    );
+  }, [currentPage]);
 
   return (
     <>
@@ -65,6 +85,7 @@ function Home() {
               </div>
             ))}
           </div>
+          <Blog.Pagination callBack={handlePagination} />
         </section>
       )}
     </>

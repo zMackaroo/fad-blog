@@ -41,11 +41,13 @@ export const deleteBlogPost = (
 };
 
 export const getAllBlogPost = (
+  page: Number = 1,
+  limit: Number = 10,
   successCallBack: (response: any) => void,
   failCallBack: () => void
 ) => {
   return axios
-    .get(`${baseUrl + allBlogPostUrl}`)
+    .get(`${baseUrl + allBlogPostUrl}?page=${page}&limit=${limit}`)
     .then((response) => {
       successCallBack(response);
     })
@@ -53,11 +55,13 @@ export const getAllBlogPost = (
 };
 
 export const getPublishedBlogPost = (
+  page: Number = 1,
+  limit: Number = 10,
   successCallBack: (response: any) => void,
   failCallBack: () => void
 ) => {
   return axios
-    .get(`${baseUrl + blogPostUrl}`)
+    .get(`${baseUrl + blogPostUrl}?page=${page}&limit=${limit}`)
     .then((response) => {
       successCallBack(response);
     })
