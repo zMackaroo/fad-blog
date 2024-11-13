@@ -53,14 +53,14 @@ function Home() {
       ) : (
         <>
           <Helmet>
-            <meta name='type' content='website' />
-            <meta name='url' content='https://www.urbanvogue.asia/' />
-            <meta name='title' content='Urban Vogue Asia' />
+            <meta property='og:type' content='website' />
+            <meta property='og:url' content='https://www.urbanvogue.asia/' />
+            <meta property='og:title' content='Urban Vogue Asia' />
             <meta
-              name='description'
+              property='og:description'
               content='Urban Vogue Asia Fashion insights'
             />
-            <meta name='image' content='/seo/page_preview.png' />
+            <meta property='og:image' content='/seo/page_preview.png' />
           </Helmet>
           <section className='home'>
             <div>

@@ -22,14 +22,14 @@ function Blogpost() {
       ) : (
         <>
           <Helmet>
-            <meta name='type' content='website' />
-            <meta name='url' content='https://www.urbanvogue.asia' />
+            <meta property='og:type' content='website' />
+            <meta property='og:url' content='https://www.urbanvogue.asia' />
             <meta
-              name='title'
+              property='og:title'
               content={`Urban Vogue Asia - ${content.title}`}
             />
-            <meta name='description' content={content.description} />
-            <meta name='image' content={content.imageLink} />
+            <meta property='og:description' content={content.description} />
+            <meta property='og:image' content={content.imageLink} />
           </Helmet>
 
           <div className='blog__post__wrapper'>
