@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { Loading } from "../../Components";
 import { Blog } from "../../Container";
@@ -50,43 +51,55 @@ function Home() {
       {loading ? (
         <Loading.Default />
       ) : (
-        <section className='home'>
-          <div>
-            <span className='home--breadcrumb'>Recent News</span>
-          </div>
-          <div className='recent__blogpost__wrapper'>
-            {blogPosts.map(({ _id, imageLink, date, title, description }) => (
-              <div key={_id} className='recent__blogpost'>
-                <img
-                  loading='lazy'
-                  className='recent__blogpost--image'
-                  src={imageLink}
-                />
-                <p className='recent__blogpost--date'>
-                  {new Date(date).toLocaleString("en-us", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </p>
-                <div className='recent__blogpost__details'>
-                  <div className='recent__blogpost__details--title'>
-                    <span>{title}</span>
+        <>
+          <Helmet>
+            <meta name='type' content='website' />
+            <meta name='url' content='https://www.urbanvogue.asia/' />
+            <meta name='title' content='Urban Vogue Asia' />
+            <meta
+              name='description'
+              content='Urban Vogue Asia Fashion insights'
+            />
+            <meta name='image' content='/seo/page_preview.png' />
+          </Helmet>
+          <section className='home'>
+            <div>
+              <span className='home--breadcrumb'>Recent News</span>
+            </div>
+            <div className='recent__blogpost__wrapper'>
+              {blogPosts.map(({ _id, imageLink, date, title, description }) => (
+                <div key={_id} className='recent__blogpost'>
+                  <img
+                    loading='lazy'
+                    className='recent__blogpost--image'
+                    src={imageLink}
+                  />
+                  <p className='recent__blogpost--date'>
+                    {new Date(date).toLocaleString("en-us", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </p>
+                  <div className='recent__blogpost__details'>
+                    <div className='recent__blogpost__details--title'>
+                      <span>{title}</span>
+                    </div>
+                    <span className='recent__blogpost__details--description'>
+                      {description}
+                    </span>
                   </div>
-                  <span className='recent__blogpost__details--description'>
-                    {description}
-                  </span>
+                  <div className='recent__blog__post--button'>
+                    <button onClick={() => HandleBlogPostClick(_id)}>
+                      READ STORY
+                    </button>
+                  </div>
                 </div>
-                <div className='recent__blog__post--button'>
-                  <button onClick={() => HandleBlogPostClick(_id)}>
-                    READ STORY
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Blog.Pagination callBack={handlePagination} />
-        </section>
+              ))}
+            </div>
+            <Blog.Pagination callBack={handlePagination} />
+          </section>
+        </>
       )}
     </>
   );
