@@ -64,7 +64,7 @@ function Home() {
             <meta
               name='image'
               property='og:image'
-              content='/seo/page_preview.png'
+              content='/public/seo/page_preview.png'
             />
             <meta property='og:url' content='https://www.urbanvogue.asia' />
             <meta name='author' content='Urban Vogue' />
