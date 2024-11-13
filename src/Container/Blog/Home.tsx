@@ -59,7 +59,7 @@ function Home() {
             <meta
               name='description'
               property='og:description'
-              content='Urban Vogue Asia Fashion insights'
+              content='Urban Vogue Asia is your ultimate destination for the latest trends, style inspiration, and fashion news from across Asia. Discover chic streetwear, haute couture, and everything in between to stay ahead of the curve.'
             />
             <meta
               name='image'
