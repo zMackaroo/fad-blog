@@ -22,6 +22,7 @@ function Blogpost() {
       ) : (
         <>
           <Helmet>
+            <title>Urban Vogue - {content.title}</title>
             <meta property='og:type' content='website' />
             <meta
               property='og:title'

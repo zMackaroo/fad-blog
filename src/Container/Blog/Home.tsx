@@ -53,6 +53,7 @@ function Home() {
       ) : (
         <>
           <Helmet>
+            <title>Urban Vogue </title>
             <meta property='og:type' content='website' />
             <meta property='og:title' content='Urban Vogue Asia' />
             <meta
