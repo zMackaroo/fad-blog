@@ -148,6 +148,10 @@ function TopBar({ editor }: any) {
             if (url) {
               editor.chain().focus().setImage({ src: url }).run();
             }
+
+            if (!editor) {
+              return null;
+            }
           }}
         >
           <i className='fa-solid fa-image' />

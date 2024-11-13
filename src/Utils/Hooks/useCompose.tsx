@@ -1,7 +1,11 @@
 import { useState, useLayoutEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-import { storeBlogPost, getBlogPostById } from "../../Services/Blogpost";
+import {
+  storeBlogPost,
+  getBlogPostById,
+  updateBlogPost,
+} from "../../Services/Blogpost";
 
 function useCompose() {
   const navigate = useNavigate();
@@ -81,6 +85,35 @@ function useCompose() {
             content: editorContent,
             isPublished: false,
             isSaved: true,
+          },
+          () => {
+            setShowSuccessSnackBar(!showSuccessSnackBar);
+            setFormStatus({
+              isPending: false,
+              isInvalidInputs: false,
+              disableInputs: false,
+            });
+            setTimeout(() => {
+              navigate("/a/blog/posts");
+            }, 1000);
+          },
+          () => {
+            setFormStatus({
+              isPending: false,
+              isInvalidInputs: true,
+              disableInputs: false,
+            });
+          }
+        );
+      } else {
+        updateBlogPost(
+          {
+            id: id,
+            title: title.current.value,
+            description: description.current.value,
+            imageLink: imageLink.current.value,
+            date: date.current.value,
+            content: editorContent,
           },
           () => {
             setShowSuccessSnackBar(!showSuccessSnackBar);

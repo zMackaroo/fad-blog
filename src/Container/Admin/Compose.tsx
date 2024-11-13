@@ -6,8 +6,9 @@ import TextAlign from "@tiptap/extension-text-align";
 import FontFamily from "@tiptap/extension-font-family";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
-import { Menu } from "./Menus";
 import Snackbar from "@mui/material/Snackbar";
+import ImageResize from "tiptap-extension-resize-image";
+import { Menu } from "./Menus";
 
 import useCompose from "../../Utils/Hooks/useCompose";
 
@@ -29,6 +30,7 @@ const editorExtensions = [
     },
   }),
   Image,
+  ImageResize,
   TextStyle,
   FontFamily,
   Underline,
