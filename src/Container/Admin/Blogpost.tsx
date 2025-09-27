@@ -10,13 +10,23 @@ function Blogpost() {
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(true);
   const [list, setList] = React.useState([]);
+  const [paginationInfo, setPaginationInfo] = React.useState({
+    totalPages: 1,
+    hasNextPage: false,
+    hasPrevPage: false,
+  });
 
   React.useLayoutEffect(() => {
     getAllBlogPost(
       page,
       10,
       (response) => {
-        setList(response.data);
+        setList(response.data.data);
+        setPaginationInfo({
+          totalPages: response.data.totalPages,
+          hasNextPage: response.data.hasNextPage,
+          hasPrevPage: response.data.hasPrevPage,
+        });
         setLoading(false);
       },
       () => {}
@@ -32,7 +42,12 @@ function Blogpost() {
       page,
       10,
       (response) => {
-        setList(response.data);
+        setList(response.data.data);
+        setPaginationInfo({
+          totalPages: response.data.totalPages,
+          hasNextPage: response.data.hasNextPage,
+          hasPrevPage: response.data.hasPrevPage,
+        });
         setLoading(false);
       },
       () => {}
@@ -44,11 +59,11 @@ function Blogpost() {
       {loading ? (
         <Loading.Default />
       ) : (
-        <div className='blogposts__wrapper'>
+        <div className="blogposts__wrapper">
           {list.length > 0 ? (
             list.map(({ title, _id, imageLink, isPublished }) => (
-              <div key={title} className='blog__posts'>
-                <div className='blog__posts--option'>
+              <div key={title} className="blog__posts">
+                <div className="blog__posts--option">
                   <MenuButton dataId={_id} publish={isPublished} />
                 </div>
                 <img src={imageLink} />
@@ -58,7 +73,13 @@ function Blogpost() {
           ) : (
             <h1>No new Post</h1>
           )}
-          <Blog.Pagination callBack={handlePagination} />
+          <Blog.Pagination
+            callBack={handlePagination}
+            currentPage={page}
+            totalPages={paginationInfo.totalPages}
+            hasNextPage={paginationInfo.hasNextPage}
+            hasPrevPage={paginationInfo.hasPrevPage}
+          />
         </div>
       )}
     </>

@@ -11,6 +11,11 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [blogPosts, setBlogPosts] = useState([]);
+  const [paginationInfo, setPaginationInfo] = useState({
+    totalPages: 1,
+    hasNextPage: false,
+    hasPrevPage: false,
+  });
   const navigate = useNavigate();
 
   const HandleBlogPostClick = (id: string) => {
@@ -23,7 +28,12 @@ function Home() {
       1,
       8,
       (response) => {
-        setBlogPosts(response.data);
+        setBlogPosts(response.data.data);
+        setPaginationInfo({
+          totalPages: response.data.totalPages,
+          hasNextPage: response.data.hasNextPage,
+          hasPrevPage: response.data.hasPrevPage,
+        });
         setLoading(false);
       },
       () => {}
@@ -39,7 +49,12 @@ function Home() {
       currentPage,
       8,
       (response) => {
-        setBlogPosts(response.data);
+        setBlogPosts(response.data.data);
+        setPaginationInfo({
+          totalPages: response.data.totalPages,
+          hasNextPage: response.data.hasNextPage,
+          hasPrevPage: response.data.hasPrevPage,
+        });
         setLoading(false);
       },
       () => {}
@@ -54,49 +69,49 @@ function Home() {
         <>
           <Helmet>
             <title>Urban Vogue </title>
-            <meta property='og:type' content='website' />
-            <meta property='og:title' content='Urban Vogue Asia' />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Urban Vogue Asia" />
             <meta
-              name='description'
-              property='og:description'
-              content='Urban Vogue Asia is your ultimate destination for the latest trends, style inspiration, and fashion news from across Asia. Discover chic streetwear, haute couture, and everything in between to stay ahead of the curve.'
+              name="description"
+              property="og:description"
+              content="Urban Vogue Asia is your ultimate destination for the latest trends, style inspiration, and fashion news from across Asia. Discover chic streetwear, haute couture, and everything in between to stay ahead of the curve."
             />
             <meta
-              name='image'
-              property='og:image'
-              content='/public/seo/page_preview.png'
+              name="image"
+              property="og:image"
+              content="/public/seo/page_preview.png"
             />
-            <meta property='og:url' content='https://www.urbanvogue.asia' />
-            <meta name='author' content='Urban Vogue' />
+            <meta property="og:url" content="https://www.urbanvogue.asia" />
+            <meta name="author" content="Urban Vogue" />
           </Helmet>
-          <section className='home'>
+          <section className="home">
             <div>
-              <span className='home--breadcrumb'>Recent News</span>
+              <span className="home--breadcrumb">Recent News</span>
             </div>
-            <div className='recent__blogpost__wrapper'>
+            <div className="recent__blogpost__wrapper">
               {blogPosts.map(({ _id, imageLink, date, title, description }) => (
-                <div key={_id} className='recent__blogpost'>
+                <div key={_id} className="recent__blogpost">
                   <img
-                    loading='lazy'
-                    className='recent__blogpost--image'
+                    loading="lazy"
+                    className="recent__blogpost--image"
                     src={imageLink}
                   />
-                  <p className='recent__blogpost--date'>
+                  <p className="recent__blogpost--date">
                     {new Date(date).toLocaleString("en-us", {
                       day: "numeric",
                       month: "short",
                       year: "numeric",
                     })}
                   </p>
-                  <div className='recent__blogpost__details'>
-                    <div className='recent__blogpost__details--title'>
+                  <div className="recent__blogpost__details">
+                    <div className="recent__blogpost__details--title">
                       <span>{title}</span>
                     </div>
-                    <span className='recent__blogpost__details--description'>
+                    <span className="recent__blogpost__details--description">
                       {description}
                     </span>
                   </div>
-                  <div className='recent__blog__post--button'>
+                  <div className="recent__blog__post--button">
                     <button onClick={() => HandleBlogPostClick(_id)}>
                       READ STORY
                     </button>
@@ -104,7 +119,13 @@ function Home() {
                 </div>
               ))}
             </div>
-            <Blog.Pagination callBack={handlePagination} />
+            <Blog.Pagination
+              callBack={handlePagination}
+              currentPage={currentPage}
+              totalPages={paginationInfo.totalPages}
+              hasNextPage={paginationInfo.hasNextPage}
+              hasPrevPage={paginationInfo.hasPrevPage}
+            />
           </section>
         </>
       )}
